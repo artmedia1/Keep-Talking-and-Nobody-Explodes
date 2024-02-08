@@ -1,6 +1,8 @@
 # Keep-Talking-and-Nobody-Explodes
  
-<iframe width="560" height="315" src="https://drive.google.com/file/d/1co8L8pfFN3vN8-Vlt5D38PiDIJ0EzTVm/view?usp=sharing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://drive.google.com/file/d/1co8L8pfFN3vN8-Vlt5D38PiDIJ0EzTVm/preview" width="640" height="480"></iframe>
+
+
 
 ## Description
 This project was a group adventure into digital design using a DE-10 Lite FPGA board in 2021. Although we named it after the popular PC game, there wasn't much talking. Instead the essence of the project was to create an engaging and interactive game that tests the player's reaction time and adaptability to increasing speeds. The game leverages the onboard MAX10 FPGA to control LED patterns and read user inputs, creating a challenging environment where the player must respond to LED signals by pressing a button at precise moments. The game progresses through various states – from readiness to win or lose scenarios, adjusting speeds to increase difficulty. We implemented the game logic in Verilog, focusing on state machine design to manage game flow and user interactions. Unlike typical software projects, this was an exploration of hardware description languages and digital logic design, where the majority of our 'dialogue' with the project was through clicking in the Quartus II software, rather than verbal communication. The lack of talking and an emphasis on direct interaction with the FPGA through coding and testing provided a unique, hands-on learning experience. Although the project didn't involve traditional programming languages or neural networks, it was a fascinating dive into the capabilities of FPGA-based systems and digital design principles, offering a solid foundation for understanding how software and hardware can interact seamlessly to create responsive and fun applications.
