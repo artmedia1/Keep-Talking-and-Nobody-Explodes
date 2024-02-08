@@ -1,8 +1,6 @@
 # Keep-Talking-and-Nobody-Explodes
  
- <video width="640" height="480" controls>
-  <source src='./assets/3216Video.mp4' type="video/mp4">
-</video> 
+[![Demo](./assets/keep-talking.png)](https://drive.google.com/file/d/1co8L8pfFN3vN8-Vlt5D38PiDIJ0EzTVm/preview)
 
 
 ## Description
