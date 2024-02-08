@@ -1,0 +1,68 @@
+module EECS3216_Project(input MAX10_CLK1_50, output [9:0] LEDR, output [6:0] HEX0, output	rdyLight, speedOneLight, speedTwoLight, speedThreeLight);
+enum {rdy, speed_one, speed_two, speed_three} State, NextState;
+
+reg [32:0] counter;
+reg [32:0] D = 32'd25000000;
+integer lightPattern = 0;
+reg gameStart;
+
+	initial begin
+		State = rdy;
+		NextState = rdy;
+	end
+
+	always_ff@(posedge MAX10_CLK1_50)begin
+		State <= NextState;
+		
+		if(State == rdy) begin
+			rdyLight <= 0;
+			speedOneLight <= 1;
+			speedTwoLight <= 1;
+			speedThreeLight <= 1;
+	   end
+		else if(State == speed_one) begin
+			rdyLight <= 1;
+			speedOneLight <= 0;
+			speedTwoLight <= 1;
+			speedThreeLight <= 1;
+	   end
+		else if(State == speed_two) begin
+			rdyLight <= 1;
+			speedOneLight <= 1;
+			speedTwoLight <= 0;
+			speedThreeLight <= 1;
+	   end
+		else if(State == speed_three) begin
+			rdyLight <= 1;
+			speedOneLight <= 1;
+			speedTwoLight <= 1;
+			speedThreeLight <= 0;
+	   end		
+		
+		counter++;
+		
+		if(counter >= (D - 1))begin
+			counter <= 0;
+			
+			if(State == rdy && lightPattern < 5)begin
+				LEDR[5] <= ~LEDR[5];
+				lightPattern++;
+			end	
+		end
+	
+		case (lightPattern % 10)
+			'd1: HEX0 <= 7'b1111001;
+			'd2: HEX0 <= 7'b0100100;
+			'd3: HEX0 <= 7'b0110000;
+			'd4: HEX0 <= 7'b0011001;
+			'd5: HEX0 <= 7'b0010010;
+			'd6: HEX0 <= 7'b0000010;
+			'd7: HEX0 <= 7'b1111000;
+			'd8: HEX0 <= 7'b0000000;
+			'd9: HEX0 <= 7'b0011000;
+			default: HEX0 <= 7'b1000000; //sets oneSec to 0
+		endcase
+		
+	end
+	
+endmodule 	
